@@ -15,7 +15,7 @@ body {
   justify-content: center;
   align-items: center;
   line-height: 2.0rem;
-  background: rgb(219, 245, 236);
+  background: #DBF5EC;
   width: 100%;
   height: 100vh;
 }
@@ -23,7 +23,23 @@ body {
 .container .title {
   font-size: 3rem;
   line-height: 6.0rem;
-  color: rgb(28, 104, 78);
   font-family: 'Roboto Condensed', sans-serif;
 }
 
+.images {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 50px;
+  padding: 30px;
+}
+
+.photo {
+  max-width: 31.333%;
+  padding: 0 10px;
+  height: 240px;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+}

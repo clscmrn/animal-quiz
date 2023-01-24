@@ -237,3 +237,9 @@ function nextQuestion() {
     answerClicked();
   }
 }
+
+function playAudio(url) {
+  if (num = num + 1);
+    new Audio(animals.audio[1]).play();
+    audio.play();
+}
