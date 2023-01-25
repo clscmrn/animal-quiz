@@ -95,7 +95,7 @@ const questions = [
   {
     question: "What animal makes this noise?",
     correct: "Alpaca",
-    options: ["Wolf", "Sheep", "Alpaca", "Cow"],
+    options: ["Wolf", "Sheep", "Alpaca", "Cow"], 
   },
   {
     question: "What animal makes this noise?",
@@ -179,7 +179,7 @@ const questions = [
   },
   {
     question: "What animal makes this noise?",
-    correct: "Frog",
+    correct: "Monkey",
     options: ["Duck", "Cow", "Mouse", "Monkey",]
   },
 ];
@@ -191,15 +191,18 @@ const wrapper = document.getElementById("wrapper");
 const score = document.getElementById("scores");
 const answer = document.getElementsByClassName("answer");
 const title = document.getElementsByClassName("title")[0];
+const img = document.getElementById('img-animal');
+document.getElementById("soundButton").addEventListener("click", replaySound);
 
 function beginQuestions() {
+  playSound(`sounds/Alpaca.mp3`)
   initialQuestion();
   answerClicked();
 }
 
 function initialQuestion() {
   wrapper.innerHTML = `
-    <div class="question-container">
+    <div id="question-container">
         <p class="question">${questions[num].question}</p>
     </div>
     <div class="answer-container">
@@ -211,35 +214,41 @@ function initialQuestion() {
     `;
 }
 
+
 function answerClicked() {
   for (let i = 0; i < answer.length; i++) {
     answer[i].addEventListener("click", () => {
-      if (quizDone) {
-        location.reload();
-        return;
-      }
+      img.src = `pictures/${questions[num].correct}.jpeg`
       if (answer[i].innerHTML === questions[num].correct) {
-        score.innerHTML = num2 + 1;
-        console.log("correct")
-        nextQuestion();
+        num2++;
+        score.innerHTML = "Score: " + num2;
+        alert("Correct!")
+        setTimeout(nextQuestion, 2000)
       } else {
         alert("This is the wrong answer!");
         nextQuestion();
       }
     });
   }
-}
 
 function nextQuestion() {
   if (questions.length - 1 > num) {
     num = num + 1;
+    playSound(`sounds/${questions[num].correct}.mp3`)
+    img.src = `pictures/mark.png`;
     initialQuestion();
     answerClicked();
   }
+}}
+
+//  audio.src = `sounds/${questions[num + 1].correct}.mp3`;
+//audio.play()
+
+function playSound(file){
+  let myAudio = new Audio(file);
+  myAudio.play(file);
 }
 
-function playAudio(url) {
-  if (num = num + 1);
-    new Audio(animals.audio[1]).play();
-    audio.play();
+function replaySound() {
+  playSound(`sounds/${questions[num].correct}.mp3`)
 }

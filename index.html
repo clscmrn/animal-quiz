@@ -10,17 +10,20 @@
     <title>Animal Sound Quiz</title>
 </head>
 <body onload="beginQuestions()">
+    <audio></audio>
     <div class="container">
         <div class="title">Animal Sound Quiz</div>
         <div class="photo">
-            <img src="pictures/mark.png"></img>
+            <img src="pictures/mark.png" id="img-animal">
         </div>
         <div class="wrapper" id="wrapper">
         </div>
         <div class="score">
-            <div class="effect" id="scores">0</div>
+            <div class="effect" id="scores"></div>
         </div>
+        <button id="soundButton">Click To Replay Sound</button>
     </div>
+    <div>
     <script src="app.js"></script>
 </body>
 </html>
